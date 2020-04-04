@@ -58,13 +58,30 @@ Expected OUTPUT for this sample:
       label: 'fresh'
     }
   ]
-
+The KEY of this new property should be `label`, and the associated VALUE
+  should be a string, which depends on the `rating` property:
+  * If `rating` is STRICTLY below 60, the value to assign to `label` is "rotten".
+  * If `rating` is between 60 and 75 (included), the value to assign to `label` is "fresh".
  */
+let movies = [ {name: 'Crazy Rich Asians', rating: 93}, {name: 'Skyscraper', rating: 46}, {name: 'Leave No Trace',rating: 100}, {name: 'White Boy Rick', rating: 60}]
 
 function getMoviesFreshness(movies) {
+  return movies.map(movie => {
+    if (movie.rating < 60) {
+      return ({...movie, label: 'rotten'})
+    }
+    else if ((movie.rating >= 60) & (movie.rating <= 75)) {
+      return ({...movie, label: 'fresh'})
+    }
+    else {
+      (movie.rating > 75)
+      return ({...movie, label: 'certified fresh'})
+    }
+  });
+
 }
 
-
+console.log(getMoviesFreshness(movies))
 
 // DON'T TOUCH THIS!
 module.exports = getMoviesFreshness;

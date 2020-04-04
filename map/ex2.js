@@ -40,10 +40,19 @@ Expected OUTPUT for this sample
     'Chick Pea is suitable for vegetarians'
   ]
 
+let new_array = arr.map(function callback( currentValue[, index[, array]]) {
+    // return element for new_array
+}[, thisArg])
+
 */
+let foods = [{food: 'Bacon', isVegetarian: false},{food: 'Sausage', isVegetarian: false},{food: 'Tofu', isVegetarian: true},{food: 'Chick Pea',isVegetarian: true}]
 
 function getFoodCategories(foods) {
+  return foods.map(food => {
+    return food.isVegetarian ? `${food.food} is suitable for vegetarians` : `${food.food} is not suitable for vegetarians`
+  })
 }
+console.log(getFoodCategories(foods))
 
 
 
